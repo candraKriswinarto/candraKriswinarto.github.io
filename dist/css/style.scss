@@ -59,7 +59,7 @@ $background-opacity: 0.8;
     width: 30px;
     height: 30px;
     position: absolute;
-    top: 20px;
+    top: 25px;
     right: 40px;
     display: flex;
     flex-direction: column;
@@ -133,6 +133,17 @@ header {
     z-index: 3;
     color: #fff;
 
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    &.showBg {
+        background: darken(color(dark), 5);
+        opacity: 0.99;
+        box-shadow: 0 1px 3px rgba(0,0,0,.3);
+        @include easeOut;
+    }
+
 
     .navbar {
 
@@ -144,7 +155,8 @@ header {
                 position: relative;
                 top: 0;
                 left: 0;
-                height: 80px;
+                height: 60px;
+                margin: 8px 0;
                 cursor: pointer;
             }
 
@@ -230,19 +242,19 @@ header {
 
             // Hover icons with diferent color
             &:nth-child(1):hover {
-                color: color(primary);
+                color: #1da1f2;
             }
 
             &:nth-child(2):hover {
-                color: red;
+                color: #3b5998
             }
 
             &:nth-child(3):hover {
-                color: color(primary);
+                color: #007bb5;
             }
 
             &:nth-child(4):hover {
-                color: color(primary);
+                color: #fafafa;
             }
         }
     }
@@ -261,13 +273,25 @@ section#hero {
     @include background;
 
     .container {
-       margin-top: 4rem;
+       margin-top: 7rem;
 
         h1 {
             font-weight: bold;
-            font-size: 3rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
             padding: .5rem;
+            position: relative;
+
+            &::before {
+                content: '';
+                width: 50px;
+                height: 5px;
+                background: color(primary);
+                bottom: -3px;
+                position: absolute;
+                border-radius: 2.5px;
+                @include easeOut;
+            }
 
             span {
                 color: color(primary);
@@ -275,20 +299,27 @@ section#hero {
         }
 
         p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             line-height: 1.5;
             padding: .5rem;
             background: rgba(color(dark), 0.6);
-            margin-bottom: 2.5rem;
+            margin: 2.5rem 0;
         }
 
         // Button in Hero Section
+        .hero-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         a.btn {
+            text-align: center;
             text-decoration: none;
             color: #fff;
             font-size: 1rem;
-            padding: .8rem 1rem;
-            margin-right: 1rem;
+            padding: .8rem 1.4rem;
+            margin-bottom: .5rem;
             border-radius: 20px;
             @include easeOut;
 
@@ -296,9 +327,8 @@ section#hero {
                 background: color(primary);
 
                 &:hover {
-                    background: rgba(0,0,0,.3);
-                    box-shadow: 0 2px 3px rgba(0,0,0,.3);
-
+                    box-shadow: 0 2px 5px rgba(0,0,0,.3);
+                    border-radius: 2px solid #000;
                 }
             }
 
@@ -306,9 +336,8 @@ section#hero {
                 background: rgba(0,0,0,.3);
 
                 &:hover {
-                    background: color(primary);
-                    box-shadow: 0 2px 3px rgba(0,0,0,.3);
-
+                    box-shadow: 0 2px 5px rgba(0,0,0,.3);
+                    border-radius: 2px solid #000;
                 }
             }
         }
@@ -320,7 +349,7 @@ section#hero {
 section#projects {
     width: 100%;
     height: 900px;
-    background: red;
+    background: #f4f4f4;
 }
 
 
@@ -386,7 +415,31 @@ section#projects {
             }
         }
     
-    }    
+    }
+
+    // Hero Section --Desktop
+    section#hero {
+
+        .container {
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            p {
+                font-size: 1.5rem;
+            }
+
+            // button flex
+            .hero-button {
+                flex-direction: row;
+                
+                a.btn {
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
  }
 
 

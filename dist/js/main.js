@@ -14,6 +14,11 @@ function toggleMenu() {
 // Change header backgrapund when scrolling down
 const header = document.getElementById('header');
 
-header.addEventListener('click', () => {
-    console.log('Header Clicked!');
-});
+window.onscroll = () => {
+    if (document.documentElement.scrollTop >= 70) {
+        header.classList.add('showBg');
+        
+    } else {
+        header.classList.remove('showBg');
+    }
+}
