@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+// Manage Color
+$colors: (
+    primary: #005dff,
+    accent: #fff6db,
+    dark: #444,
+);
+
+// Backgaround Images
+$show-hero-image: true;
+$hero-image: url('../img/background.jpg');
+$background-opacity: 0.8;
+
+// Function to type colors var look cool
+@function color($color-name) {
+    @return map-get($colors, $color-name);
+}
+
+// Animation
+@mixin easeOut {
+    transition: all 0.5s ease-out;
+}
+
+@mixin background {
+    @if $show-hero-image {
+        &#hero {
+            background: $hero-image;
+            background-attachment: fixed;
+            background-size: cover;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 80vh;
+                background: rgba(color(dark), $background-opacity);
+            }
+        }
+    }
+}
+
+
+// Media Query Mixins
+@mixin mediaLg {
+    @media screen and (min-width: 769px) {
+        @content;
+    }
+}
+
+
+
+
+// hamburger wrapper
+.menu-btn {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 3px 0 3px;
+    z-index: 4;
+    cursor: pointer;
+
+    &:active {
+        background: color(dark);
+    }
+
+    // hamburger line
+    .btn-line {
+        width: 20px;
+        height: 2px;
+        background: #fff;
+        margin-bottom: 4px;
+        @include easeOut;
+    }
+
+    // User clicked menu
+    &.close {
+        
+        .btn-line {
+            // Line 1 - Rotate
+            &:nth-child(1) {
+                transform: rotate(45deg) translate(4.5px, 4px);
+            }
+
+            // Line 2 - Hide
+            &:nth-child(2) {
+                opacity: 0;
+            }
+
+            // Line 3 - Rotate
+            &:nth-child(3) {
+                transform: rotate(-45deg) translate(4.5px, -4px);
+            }
+        }
+    }
+
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    body {
+        font-family: 'Roboto';
+        overflow-x: hidden;
+
+        .container {
+            max-width: 970px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            z-index: 1;
+
+        }
+    }
+}
+
+// Header
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    color: #fff;
+
+
+    .navbar {
+
+        .branding {
+            z-index: 8;
+            
+
+            img {
+                position: relative;
+                top: 0;
+                left: 0;
+                height: 80px;
+                cursor: pointer;
+            }
+
+            h1 span {
+                color: color(primary);
+            }
+        }
+
+        nav.menu-nav {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 200px;
+            height: 100vh;
+            background: darken(color(dark), 5);
+            opacity: 0.9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            z-index: 3;
+
+            transform: translate3d(100%, 0, 0);
+            @include easeOut;
+
+            ul {
+                list-style: none;
+
+                li {
+                    padding: 20px 0;
+                    text-align: center;
+
+                    a {
+                        display: inline-block;
+                        text-decoration: none;
+                        text-align: center;
+                        font-size: 1rem;
+                        text-transform: uppercase;
+                        color: #fff;
+            
+            
+                        &::after {
+                            content: '';
+                            display: block;
+                            width: 0;
+                            height: 1px;
+                            margin-top: 3px;
+                            background: color(primary);
+                            @include easeOut;
+                        }
+            
+                        &.current,
+                        &:hover {
+                            color: color(primary);
+                        }
+            
+                        &:hover::after {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            // Show nav from right side
+            &.show {
+                visibility: visible;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+    }
+
+    // Social Media Icons
+    .icons {
+        margin-top: 20px;
+
+        a {
+            display: inline-block;
+            font-size: 20px;
+            margin: 0 5px;
+            color: #fff;
+            @include easeOut;
+
+            // Hover icons with diferent color
+            &:nth-child(1):hover {
+                color: color(primary);
+            }
+
+            &:nth-child(2):hover {
+                color: red;
+            }
+
+            &:nth-child(3):hover {
+                color: color(primary);
+            }
+
+            &:nth-child(4):hover {
+                color: color(primary);
+            }
+        }
+    }
+}
+
+
+// Section Hero
+section#hero {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: #fff;
+    @include background;
+
+    .container {
+       margin-top: 4rem;
+
+        h1 {
+            font-weight: bold;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            padding: .5rem;
+
+            span {
+                color: color(primary);
+            }
+        }
+
+        p {
+            font-size: 1.5rem;
+            line-height: 1.5;
+            padding: .5rem;
+            background: rgba(color(dark), 0.6);
+            margin-bottom: 2.5rem;
+        }
+
+        // Button in Hero Section
+        a.btn {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+            padding: .8rem 1rem;
+            margin-right: 1rem;
+            border-radius: 20px;
+            @include easeOut;
+
+            &.primary {
+                background: color(primary);
+
+                &:hover {
+                    background: rgba(0,0,0,.3);
+                    box-shadow: 0 2px 3px rgba(0,0,0,.3);
+
+                }
+            }
+
+            &.transparent {
+                background: rgba(0,0,0,.3);
+
+                &:hover {
+                    background: color(primary);
+                    box-shadow: 0 2px 3px rgba(0,0,0,.3);
+
+                }
+            }
+        }
+    }
+    
+}
+
+// Section About
+section#projects {
+    width: 100%;
+    height: 900px;
+    background: red;
+}
+
+
+
+
+
+// Desktop & Laptop
+@include mediaLg {
+    header {
+        position: fixed;
+        width: 100%;
+        z-index: 3;
+        color: #fff;
+
+        .menu-btn {
+            display: none;
+        }
+    
+    
+        .navbar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            position: static;
+
+            .branding {
+                z-index: 8;
+    
+                h1 span {
+                    color: color(primary);
+                }
+            }
+    
+            nav.menu-nav {
+                background: none;
+                position: static;
+                height: auto;
+                line-height: 2rem;
+                display: inline;
+                width: auto;
+                opacity: 0.9;
+                visibility: visible;
+                transform: translate3d(0, 0, 0);
+                display: flex;
+                justify-content: center;
+    
+                ul {
+                    display: flex;
+                    .icons {
+                        display: none;
+                    }
+    
+                    li {
+                        padding: 0;
+                        text-align: start;
+    
+                        a {
+                            margin: 0 15px;
+                           
+                        }
+                    }
+                }
+            }
+        }
+    
+    }    
+ }
+
+
+
+
