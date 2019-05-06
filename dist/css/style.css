@@ -59,7 +59,7 @@
 }
 
 * body {
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
 }
 
@@ -324,10 +324,111 @@ section#hero .container a.btn.transparent:hover {
   border-radius: 2px solid #000;
 }
 
+section#about {
+  background: #333;
+  width: 100%;
+  height: 400px;
+}
+
 section#projects {
   width: 100%;
-  height: 900px;
-  background: #f4f4f4;
+  background: #5a5151;
+}
+
+section#projects .boxes {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1.5rem;
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 250px;
+  padding: 3rem;
+}
+
+section#projects .boxes .box {
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+section#projects .boxes .box:nth-child(1) {
+  background: url("../img/project.jpg");
+}
+
+section#projects .boxes .box:nth-child(2) {
+  background: url("../img/project.jpg");
+}
+
+section#projects .boxes .box:nth-child(3) {
+  background: url("../img/project.jpg");
+}
+
+section#projects .boxes .box:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #444;
+  opacity: 0.8;
+  z-index: 1;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+section#projects .boxes .box .box-wrap {
+  position: absolute;
+  background: #005dff;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  z-index: 2;
+  opacity: 0.6;
+}
+
+section#projects .boxes .box:hover .box-wrap {
+  top: 40px;
+  right: calc(50% - 35px);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+section#projects .boxes .box .content {
+  position: absolute;
+  top: 100%;
+  height: calc(100% - 100px);
+  text-align: center;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  opacity: 0;
+  z-index: 2;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+section#projects .boxes .box .content h3 {
+  color: #fff;
+  font-size: 20px;
+}
+
+section#projects .boxes .box .content p {
+  color: #fff;
+  font-size: 14px;
+}
+
+section#projects .boxes .box:hover .content {
+  top: 110px;
+  opacity: 1;
 }
 
 @media screen and (min-width: 769px) {

@@ -11,7 +11,7 @@ function toggleMenu() {
     menuNav.classList.toggle('show');
 }
 
-// Change header backgrapund when scrolling down
+// Change header background when scrolling down
 const header = document.getElementById('header');
 
 window.onscroll = () => {
