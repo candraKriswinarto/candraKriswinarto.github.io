@@ -327,7 +327,7 @@ section#hero .container a.btn.transparent:hover {
 
 section#about {
   width: 100%;
-  height: 400px;
+  background: #f4f4f4;
 }
 
 section#about h1 {
@@ -348,8 +348,98 @@ section#about h1:after {
   left: calc(50% - 100px);
 }
 
+section#about .about-wrap {
+  margin: 4rem 0;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+section#about .about-wrap .box-bio {
+  text-align: end;
+  line-height: 1.5;
+}
+
+section#about .about-wrap .box-bio h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+section#about .about-wrap .box-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+section#about .about-wrap .box-img img {
+  position: relative;
+  height: 300px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+section#about .about-wrap .box-skill h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+section#about .about-wrap .box-skill .progress-skill {
+  position: relative;
+  font-family: sans-serif;
+  font-size: .7rem;
+  margin: 5px 0;
+}
+
+section#about .about-wrap .box-skill .progress {
+  position: relative;
+  margin-bottom: 15px;
+  -webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+section#about .about-wrap .box-skill .progress .progress-bar {
+  -webkit-box-shadow: inset 0px -1px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0px -1px 2px rgba(0, 0, 0, 0.1);
+  height: 18px;
+  background: #3798d9;
+}
+
+section#about .about-wrap .box-skill .progress .progress-label {
+  line-height: 18px;
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  font-weight: bold;
+  color: #000;
+  font-size: 0.7em;
+}
+
+section#about .about-wrap .box-skill .progress .progress-info {
+  background: #9575cd !important;
+}
+
+section#about .about-wrap .box-skill .progress .progress-danger {
+  background: #ef5350 !important;
+}
+
+section#about .about-wrap .box-skill .progress .progress-success {
+  background: #66bb6a !important;
+}
+
+section#about .about-wrap .box-skill .progress .progress-warning {
+  background: #ffb74d !important;
+}
+
 section#projects {
   width: 100%;
+  padding-bottom: 5rem;
 }
 
 section#projects h1 {
@@ -370,110 +460,88 @@ section#projects h1:after {
   left: calc(50% - 100px);
 }
 
-section#projects .boxes {
-  position: relative;
-  display: -ms-grid;
-  display: grid;
-  grid-gap: 1.5rem;
-  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-auto-rows: 250px;
-  padding: 3rem;
+section#projects .project-wrapper {
+  margin-top: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-section#projects .boxes .box {
-  position: relative;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  overflow: hidden;
-  -webkit-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
-  cursor: pointer;
-}
-
-section#projects .boxes .box:nth-child(1) {
-  background: url("../img/project.jpg");
-}
-
-section#projects .boxes .box:nth-child(2) {
-  background: url("../img/project.jpg");
-}
-
-section#projects .boxes .box:nth-child(3) {
-  background: url("../img/project.jpg");
-}
-
-section#projects .boxes .box:hover {
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-section#projects .boxes .box:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #444;
-  opacity: 0.8;
-  z-index: 1;
-  -webkit-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
-}
-
-section#projects .boxes .box .box-wrap {
-  position: absolute;
-  background: #005dff;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
-  z-index: 2;
-  opacity: 0.7;
-}
-
-section#projects .boxes .box:hover .box-wrap {
-  top: 40px;
-  right: calc(50% - 35px);
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-}
-
-section#projects .boxes .box .content {
-  position: absolute;
-  top: 100%;
-  height: calc(100% - 100px);
+section#projects .project-wrapper .project-img {
   text-align: center;
-  padding: 20px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  opacity: 0;
-  z-index: 2;
+}
+
+section#projects .project-wrapper .project-img img {
+  max-width: 80%;
+  -webkit-box-shadow: 0 6px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 6px 7px rgba(0, 0, 0, 0.3);
+}
+
+section#projects .project-wrapper .project-description {
+  padding-top: 2rem;
+  line-height: 1.6rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
+section#projects .project-wrapper .project-description h2 {
+  font-weight: 400;
+}
+
+section#projects .project-wrapper .project-description p {
+  margin: .7rem 0;
+  color: #444;
+}
+
+section#projects .project-wrapper .project-description ul {
+  padding-left: 2.2rem;
+  color: #444;
+}
+
+section#projects .project-wrapper .project-description .description-link {
+  margin-top: 2rem;
+}
+
+section#projects .project-wrapper .project-description .description-link .btn-visit {
+  text-decoration: none;
+  padding: .8rem 1.5rem;
+  background: #005dff;
+  margin-right: 2rem;
+  color: #fff;
+  display: inline-block;
   -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
 
-section#projects .boxes .box .content h3 {
-  color: #fff;
-  font-size: 20px;
+section#projects .project-wrapper .project-description .description-link .btn-visit:hover {
+  -webkit-transform: translateY(-7px);
+          transform: translateY(-7px);
+  -webkit-box-shadow: 0 6px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 6px 7px rgba(0, 0, 0, 0.3);
 }
 
-section#projects .boxes .box .content p {
-  color: #fff;
-  font-size: 14px;
+section#projects .project-wrapper .project-description .description-link .btn-code {
+  text-decoration: none;
 }
 
-section#projects .boxes .box:hover .content {
-  top: 110px;
-  opacity: 1;
+section#projects .project-wrapper .project-description .description-link .btn-code:hover {
+  text-decoration: underline;
+}
+
+section#contact {
+  background: #444;
+  padding-bottom: 3rem;
 }
 
 section#contact h1 {
   text-align: center;
   margin: 1rem;
-  color: #444;
+  color: #fff;
   font-weight: 300;
   position: relative;
 }
@@ -486,6 +554,98 @@ section#contact h1:after {
   background: #005dff;
   bottom: -15px;
   left: calc(50% - 100px);
+}
+
+section#contact .contact-wrapper {
+  margin-top: 5rem;
+  color: #fff;
+}
+
+section#contact .contact-wrapper form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+section#contact .contact-wrapper form p {
+  margin: 0;
+}
+
+section#contact .contact-wrapper form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+section#contact .contact-wrapper form .full {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / 3;
+}
+
+section#contact .contact-wrapper form button, section#contact .contact-wrapper form input, section#contact .contact-wrapper form textarea {
+  width: 100%;
+  padding: 1em;
+  border: none;
+}
+
+section#contact .contact-wrapper form input:focus, section#contact .contact-wrapper form textarea:focus {
+  outline: none !important;
+}
+
+section#contact .contact-wrapper form button {
+  background: #005dff;
+  border: 0;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+section#contact .contact-wrapper form button:hover {
+  background: rgba(0, 93, 255, 0.5);
+}
+
+footer {
+  padding: 1rem 5rem 2rem;
+  background: #444;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  line-height: 1.5rem;
+}
+
+footer .copyright {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+footer .copyright .fa-heart {
+  color: red;
+}
+
+footer .copyright .fa-headphones-alt {
+  color: #005dff;
+}
+
+footer .footer-icons .fab {
+  margin: 0 .5rem;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 769px) {
@@ -564,6 +724,36 @@ section#contact h1:after {
   }
   section#hero .container .hero-button a.btn {
     margin-right: 1rem;
+  }
+  .project-img {
+    -ms-flex-preferred-size: 60%;
+        flex-basis: 60%;
+    text-align: start !important;
+  }
+  .project-description {
+    -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;
+    width: 100%;
+  }
+  .project-right {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    text-align: end !important;
+  }
+  .project-left {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  footer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  footer .copyright {
+    text-align: start;
   }
 }
 /*# sourceMappingURL=style.css.map */
