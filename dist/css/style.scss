@@ -631,6 +631,10 @@ footer {
         }
     }
 
+    a {
+        color: #fff;
+    }
+
     .footer-icons .fab {
         margin: 0 .5rem;
         font-size: 2rem;
@@ -750,6 +754,10 @@ footer {
 
         .copyright {
             text-align: start;
+        }
+
+        .footer-icons a {
+            color: #fff;
         }
     }
  }

@@ -642,6 +642,10 @@ footer .copyright .fa-headphones-alt {
   color: #005dff;
 }
 
+footer a {
+  color: #fff;
+}
+
 footer .footer-icons .fab {
   margin: 0 .5rem;
   font-size: 2rem;
@@ -754,6 +758,9 @@ footer .footer-icons .fab {
   }
   footer .copyright {
     text-align: start;
+  }
+  footer .footer-icons a {
+    color: #fff;
   }
 }
 /*# sourceMappingURL=style.css.map */
