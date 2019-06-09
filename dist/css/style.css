@@ -367,6 +367,10 @@ section#about .about-wrap .box-bio h2 {
   margin-bottom: 1.5rem;
 }
 
+section#about .about-wrap .box-bio p {
+  color: #444;
+}
+
 section#about .about-wrap .box-img {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -394,6 +398,7 @@ section#about .about-wrap .box-skill .progress-skill {
   font-family: sans-serif;
   font-size: .7rem;
   margin: 5px 0;
+  color: #444;
 }
 
 section#about .about-wrap .box-skill .progress {
@@ -559,6 +564,15 @@ section#contact h1:after {
 section#contact .contact-wrapper {
   margin-top: 5rem;
   color: #fff;
+}
+
+section#contact .contact-wrapper .alert {
+  text-align: center;
+  padding: 10px;
+  background: #79c879;
+  color: #fff;
+  margin-bottom: 10px;
+  display: none;
 }
 
 section#contact .contact-wrapper form {

@@ -1,5 +1,4 @@
 // Show Navigation grom right side
-
 const menuBtn = document.querySelector('.menu-btn');
 const menuNav = document.querySelector('.menu-nav');
 
@@ -22,3 +21,9 @@ window.onscroll = () => {
         header.classList.remove('showBg');
     }
 }
+
+
+// Smooth Scroll - https://github.com/cferdinandi/smooth-scroll
+ const scroll = new SmoothScroll('a[href*="#"]', {
+	speed: 500
+});

@@ -377,12 +377,18 @@ section#about {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
         .box-bio {
+            text-align: end;
+            line-height: 1.5;
+
             h2 {
                 font-size: 1.3rem;
                 margin-bottom: 1.5rem;
             }
-            text-align: end;
-            line-height: 1.5;
+
+            p {
+                color: color(dark);
+            }
+
         }
 
 
@@ -409,6 +415,7 @@ section#about {
                 font-family: sans-serif;
                 font-size: .7rem;
                 margin: 5px 0;
+                color: color(dark);
             }
             
             .progress {
@@ -560,6 +567,15 @@ section#contact {
     .contact-wrapper {
         margin-top: 5rem;
         color: #fff;
+
+        .alert {
+            text-align: center;
+            padding: 10px;
+            background: #79c879;
+            color: #fff;
+            margin-bottom: 10px;
+            display: none;
+        }
 
         form {
             display: grid;
